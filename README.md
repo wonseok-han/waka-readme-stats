@@ -121,7 +121,11 @@ jobs:
 
 `COMMIT_BY_ME`        flag can be set to `True` to commit the code using your name and email
 
-`COMMIT_MESSAGE`        flag can be to set message commit, default is "Updated with Dev Metrics"
+`COMMIT_MESSAGE`        flag can be set to message commit, default is "Updated with Dev Metrics"
+
+`COMMIT_USERNAME`        flag can be set to username to commit the code, default is "readme-bot"
+
+`COMMIT_EMAIL`        flag can be set to email to commit the code, default is "41898282+github-actions[bot]@users.noreply.github.com"
 
 `SHOW_UPDATED_DATE`        flag can be set to `True` to show updated date in end of paragraph
 
@@ -368,8 +372,6 @@ Contributions are welcome! ♥! Please share any features, and add unit tests! U
   
   - [> EdgyCoder ✌](https://github.com/edgycoder)
   
-  - [> EdgyCoder ✌](https://github.com/edgycoder)
-  
   - [Korel Kashri](https://github.com/korelkashri)
   
   - [Gustavo Barbosa](https://github.com/gusbdev)
@@ -404,7 +406,7 @@ Contributions are welcome! ♥! Please share any features, and add unit tests! U
 
   - [Waterdev](https://github.com/UnrealValentin)
   
-  - [Aditya Prasad S](https://github.com/UnrealValentin](https://github.com/adityaprasad502)
+  - [Aditya Prasad S](https://github.com/adityaprasad502)
   
   - [C. Vinicius Santos](https://github.com/c-viniciussantos)
   
@@ -432,4 +434,3 @@ Made with :heart: and Python 🐍.
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/anmol098/waka-readme-stats.svg)](https://starchart.cc/anmol098/waka-readme-stats)
-

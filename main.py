@@ -30,6 +30,7 @@ listReg = f"{START_COMMENT}[\\s\\S]+{END_COMMENT}"
 
 waka_key = os.getenv('INPUT_WAKATIME_API_KEY')
 ghtoken = os.getenv('INPUT_GH_TOKEN')
+branchName = os.getenv('INPUT_PUSH_BRANCH_NAME')
 showTimeZone = os.getenv('INPUT_SHOW_TIMEZONE')
 showProjects = os.getenv('INPUT_SHOW_PROJECTS')
 showEditors = os.getenv('INPUT_SHOW_EDITORS')
@@ -48,6 +49,8 @@ ignored_repos_name = str(os.getenv('INPUT_IGNORED_REPOS') or '').replace(' ', ''
 show_updated_date = os.getenv('INPUT_SHOW_UPDATED_DATE')
 updated_date_format = os.getenv('INPUT_UPDATED_DATE_FORMAT')
 commit_message = os.getenv('INPUT_COMMIT_MESSAGE')
+commit_username = os.getenv('INPUT_COMMIT_USERNAME')
+commit_email = os.getenv('INPUT_COMMIT_EMAIL')
 show_total_code_time = os.getenv('INPUT_SHOW_TOTAL_CODE_TIME')
 symbol_version = os.getenv('INPUT_SYMBOL_VERSION').strip()
 show_waka_stats = 'y'
@@ -325,7 +328,7 @@ def get_waka_time_stats():
         f"https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key={waka_key}")
     no_activity = translate["No Activity Tracked This Week"]
 
-    if request.status_code == 401:
+    if request.status_code == 401 or request.status_code != 200:
         print("Error With WAKA time API returned " + str(request.status_code) + " Response " + str(request.json()))
     else:
         data = request.json()
@@ -545,6 +548,8 @@ if __name__ == '__main__':
         g = Github(ghtoken)
         headers = {"Authorization": "Bearer " + ghtoken}
         user_data = run_query(userInfoQuery)  # Execute the query
+        if "errors" in user_data:
+            raise Exception(user_data)
         username = user_data["data"]["viewer"]["login"]
         id = user_data["data"]["viewer"]["id"]
         email = user_data["data"]["viewer"]["email"]
@@ -565,11 +570,14 @@ if __name__ == '__main__':
         if commit_by_me.lower() in truthy:
             committer = InputGitAuthor(username, email)
         else:
-            committer = InputGitAuthor('readme-bot', '41898282+github-actions[bot]@users.noreply.github.com')
+            committer = InputGitAuthor(
+                commit_username or 'readme-bot',
+                commit_email or '41898282+github-actions[bot]@users.noreply.github.com'
+            )
         if new_readme != rdmd:
             try:
                 repo.update_file(path=contents.path, message=commit_message,
-                                 content=new_readme, sha=contents.sha, branch='master',
+                                 content=new_readme, sha=contents.sha, branch=branchName,
                                  committer=committer)
             except:
                 repo.update_file(path=contents.path, message=commit_message,
