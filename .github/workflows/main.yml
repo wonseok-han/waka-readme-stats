@@ -30,3 +30,4 @@ jobs:
           SHOW_OS: "True"
           SHOW_TIMEZONE: "True"
           SHOW_EDITORS: "True"
+          SHOW_TOTAL_CODE_TIME: "False"
