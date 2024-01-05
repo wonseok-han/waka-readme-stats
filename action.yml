@@ -12,10 +12,20 @@ inputs:
     description: 'Your Wakatime API Key'
     required: true
 
+  SECTION_NAME:
+    description: 'Name used in readme to scope the updated section'
+    required: false
+    default: "waka"
+
+  PULL_BRANCH_NAME:
+    required: false
+    description: "The branch to get the readme from"
+    default: ""
+
   PUSH_BRANCH_NAME:
     required: false
     description: "The branch to update the readme in"
-    default: "master"
+    default: ""
 
   SHOW_OS:
     required: false
@@ -77,20 +87,20 @@ inputs:
     description: "Shows the short facts"
     default: "True"
 
-  LOCALE:
+  SHOW_UPDATED_DATE:
     required: false
-    description: "Show stats in your own language"
-    default: "en"
+    description: "Show updated date"
+    default: "True"
+
+  SHOW_TOTAL_CODE_TIME:
+    required: false
+    description: "Show Total Time you have coded"
+    default: "True"
 
   COMMIT_BY_ME:
     required: false
     description: "Git commit with your own name and email"
     default: "False"
-
-  IGNORED_REPOS:
-    required: false
-    description: "Repos you don't want to be counted"
-    default: ""
   
   COMMIT_MESSAGE:
     required: false
@@ -106,30 +116,40 @@ inputs:
     required: false
     description: "Git commit custom email"
     default: ""
-  
-  SHOW_UPDATED_DATE:
+
+  COMMIT_SINGLE:
     required: false
-    description: "Show updated date"
-    default: "True"
+    description: "Erase commit history on each commit"
+    default: "False"
+
+  LOCALE:
+    required: false
+    description: "Show stats in your own language"
+    default: "en"
 
   UPDATED_DATE_FORMAT:
     required: false
     description: "Updated date format"
     default: "%d/%m/%Y %H:%M:%S"
 
-  SHOW_TOTAL_CODE_TIME:
+  IGNORED_REPOS:
     required: false
-    description: "Show Total Time you have coded"
-    default: "True"
+    description: "Repos you don't want to be counted"
+    default: ""
 
   SYMBOL_VERSION:
     required: false
     description: "Version of the symbol block and empty of the progress bar"
     default: "1"
 
+  DEBUG_LOGGING:
+    required: false
+    description: "Whether to enable action debug logging"
+    default: ${{ runner.debug }}
+
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://wakareadmestats/waka-readme-stats:master'
 
 branding:
   icon: 'activity'

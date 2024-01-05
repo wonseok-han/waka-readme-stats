@@ -62,6 +62,8 @@ Add a comment to your `README.md` like this:
 <!--END_SECTION:waka-->
 ```
 
+`waka` can be replaced by any string specified in the `SECTION_NAME` flag as per (the available flags section)[#flags-available]
+
 These lines will be our entry-points for the dev metrics.
 
 ## New to WakaTime
@@ -106,11 +108,11 @@ jobs:
 
 ```yml
 - uses: anmol098/waka-readme-stats@master
-        with:
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          SHOW_OS: "False"
-          SHOW_PROJECTS: "False"
+  with:
+      WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      SHOW_OS: "False"
+      SHOW_PROJECTS: "False"
 ```
 
 ### Flags Available
@@ -118,6 +120,8 @@ jobs:
 ---
 
 `LOCALE`  This Flag can be used to show stats in your language default is english uses Locale [Short Hand](https://saimana.com/list-of-country-locale-code/) to be passed in the flag variable example of the final result can be found [here](https://github.com/anmol098/anmol098/blob/master/Readme-fr.md)
+
+`SECTION_NAME`        flag can be set to any string, and will be the name of the section to replace in the readme
 
 `COMMIT_BY_ME`        flag can be set to `True` to commit the code using your name and email
 
@@ -256,6 +260,8 @@ CSS          2 repos        █░░░░░░░░░░░░░░░░�
 |    2    |      ⣿     |       ⣀     |
 |    3    |      ⬛    |       ⬜    |
 
+`DEBUG_LOGGING` flag can be set to increase action output verbosity, by default equals internal runner debug property
+
 **Timeline**
 
 ![Chart not found](https://raw.githubusercontent.com/anmol098/anmol098/master/charts/bar_graph.png) 
@@ -282,14 +288,15 @@ Contributions are welcome! ♥! Please share any features, and add unit tests! U
 # Selected Contributors
 
 1. [Anmol Pratap Singh](https://github.com/anmol098): Maintainer
-2. [Prabhat Singh](https://github.com/prabhatdev): For code timeline graph [#18](https://github.com/anmol098/waka-readme-stats/pull/18)
-2. [Aravind V. Nair](https://github.com/aravindvnair99): Maintainer and For Pull Request [#188](https://github.com/anmol098/waka-readme-stats/pull/188) And Other improvements
-3. [Hedy Li](https://github.com/hedythedev): For Pull Request [#34](https://github.com/anmol098/waka-readme-stats/pull/34) and [#23](https://github.com/anmol098/waka-readme-stats/pull/23)
-4. [Pedro Torres](https://github.com/Corfucinas): For Pull Request [#29](https://github.com/anmol098/waka-readme-stats/pull/29)
-5. [Aaron Meese](https://github.com/ajmeese7): For Pull Request [#45](https://github.com/anmol098/waka-readme-stats/pull/45)
-6. [Arnav Jindal](https://github.com/Daggy1234): For Pull Request [#48](https://github.com/anmol098/waka-readme-stats/pull/48)
-7. [Daniel Rowe](https://github.com/DanRowe): For Pull Request [#57](https://github.com/anmol098/waka-readme-stats/pull/57)
-8. [Ss5h](https://github.com/tlatkdgus1): For adding support for natural sentence writing for translation [#136](https://github.com/anmol098/waka-readme-stats/pull/136)
+2. [Alexander Sergeev](https://github.com/pseusys): Maintainer
+3. [Aravind V. Nair](https://github.com/aravindvnair99): Maintainer
+4. [Prabhat Singh](https://github.com/prabhatdev): For code timeline graph [#18](https://github.com/anmol098/waka-readme-stats/pull/18)
+5. [Hedy Li](https://github.com/hedythedev): For Pull Request [#34](https://github.com/anmol098/waka-readme-stats/pull/34) and [#23](https://github.com/anmol098/waka-readme-stats/pull/23)
+6. [Pedro Torres](https://github.com/Corfucinas): For Pull Request [#29](https://github.com/anmol098/waka-readme-stats/pull/29)
+7. [Aaron Meese](https://github.com/ajmeese7): For Pull Request [#45](https://github.com/anmol098/waka-readme-stats/pull/45)
+8. [Arnav Jindal](https://github.com/Daggy1234): For Pull Request [#48](https://github.com/anmol098/waka-readme-stats/pull/48)
+9. [Daniel Rowe](https://github.com/DanRowe): For Pull Request [#57](https://github.com/anmol098/waka-readme-stats/pull/57)
+10. [Ss5h](https://github.com/tlatkdgus1): For adding support for natural sentence writing for translation [#136](https://github.com/anmol098/waka-readme-stats/pull/136)
 
 <details>
 <summary>Special mention for those who are currently making their profile readme more awesome :smile: :tada:</summary>
@@ -413,6 +420,10 @@ Contributions are welcome! ♥! Please share any features, and add unit tests! U
   - [James Tufarelli](https://github.com/Minituff)
   
   - [Muhammad Bilal](https://github.com/BilalJaved15)
+
+  - [Wyatt Walsh](https://www.github.com/wyattowalsh)
+
+  - [Nithin Balaji](https://github.com/thenithinbalaji)
 
   
 
